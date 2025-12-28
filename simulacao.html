@@ -183,7 +183,85 @@
       }
     });
   </script>
+<script>
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyzVG5dDv6CJ9sYZ4c4rC5U8I4Skrv9ww4kYvxVPlq418RgV-PlJKTxfRWeypNjjgT6bA/exec';
+
+  const form = document.getElementById('simulacaoForm');
+  const msg = document.getElementById('mensagem');
+
+  // Função para validar CPF (formato simples + dígitos válidos)
+  function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, ''); // remove caracteres não numéricos
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let soma = 0, resto;
+    for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.substring(9, 10))) return false;
+
+    soma = 0;
+    for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.substring(10, 11))) return false;
+
+    return true;
+  }
+
+  // Função para validar telefone (mínimo 10 dígitos)
+  function validarTelefone(telefone) {
+    telefone = telefone.replace(/[^\d]+/g, '');
+    return telefone.length >= 10 && telefone.length <= 11;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const cpf = data.get('CPF');
+    const telefone = data.get('Telefone');
+
+    // Validações antes de enviar
+    if (!validarCPF(cpf)) {
+      msg.classList.remove('hidden');
+      msg.classList.replace('text-green-600', 'text-red-600');
+      msg.textContent = '❌ CPF inválido. Verifique e tente novamente.';
+      return;
+    }
+
+    if (!validarTelefone(telefone)) {
+      msg.classList.remove('hidden');
+      msg.classList.replace('text-green-600', 'text-red-600');
+      msg.textContent = '❌ Telefone inválido. Informe com DDD.';
+      return;
+    }
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        body: data
+      });
+
+      const json = await res.json();
+
+      if (json.status === 'ok') {
+        msg.classList.remove('hidden');
+        msg.classList.replace('text-red-600', 'text-green-600');
+        msg.textContent = '✅ Sua solicitação foi registrada com sucesso! Em instantes você receberá o contato de um dos nossos consultores.';
+        form.reset();
+      } else {
+        msg.classList.remove('hidden');
+        msg.classList.replace('text-green-600', 'text-red-600');
+        msg.textContent = '❌ Ocorreu um erro ao registrar. Tente novamente.';
+      }
+    } catch (err) {
+      msg.classList.remove('hidden');
+      msg.classList.replace('text-green-600', 'text-red-600');
+      msg.textContent = '❌ Falha de conexão. Verifique sua internet e tente novamente.';
+    }
+  });
+</script>
 
 </body>
 </html>
-
