@@ -8,28 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Poppins', sans-serif; }
-    /* Efeito de zoom suave */
-    .zoom-effect {
-      transition: transform 0.3s ease;
-    }
-    .zoom-effect:hover {
-      transform: scale(1.1);
-    }
-    /* Animações simples */
-    .animate-slide-left {
-      animation: slideLeft 1s ease forwards;
-    }
-    .animate-slide-right {
-      animation: slideRight 1s ease forwards;
-    }
-    @keyframes slideLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slideRight {
-      from { opacity: 0; transform: translateX(50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+    .zoom-effect { transition: transform 0.3s ease; }
+    .zoom-effect:hover { transform: scale(1.1); }
+    .animate-slide-left { animation: slideLeft 1s ease forwards; }
+    .animate-slide-right { animation: slideRight 1s ease forwards; }
+    @keyframes slideLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -53,27 +37,23 @@
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-      <!-- Logo à esquerda com efeito zoom -->
+      <!-- Logo -->
       <div class="flex justify-center animate-slide-left">
-        <img
-          src="assets/img/logo-nafra.png"
-          alt="Logo Nafra Cred"
-          class="w-64 md:w-96 object-contain zoom-effect"
-        />
+        <img src="assets/img/logo-nafra.png" alt="Logo Nafra Cred" class="w-64 md:w-96 object-contain zoom-effect" />
       </div>
 
-      <!-- Formulário à direita -->
+      <!-- Formulário -->
       <div class="bg-white shadow-lg rounded-lg p-8 animate-slide-right">
         <h2 class="text-3xl font-bold text-center text-red-600 mb-6">Simule seu Crédito</h2>
         
-        <form id="simulacaoForm" class="space-y-4">
+        <form id="simulacaoForm" class="space-y-4" novalidate>
           <input type="text" name="Nome" placeholder="Nome completo" required
             class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
           
-          <input type="tel" name="Telefone" placeholder="Telefone" required
+          <input type="tel" id="telefone" name="Telefone" placeholder="Telefone" required
             class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
           
-          <input type="text" name="CPF" placeholder="CPF" required
+          <input type="text" id="cpf" name="CPF" placeholder="CPF" required
             class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
           
           <button type="submit"
@@ -82,9 +62,7 @@
           </button>
         </form>
         
-        <p id="mensagem" class="text-center mt-4 text-green-600 hidden">
-          ✅ Sua solicitação foi registrada com sucesso! Em instantes você receberá um contato de um dos nossos consultores.
-        </p>
+        <p id="mensagem" class="text-center mt-4 text-green-600 hidden"></p>
       </div>
     </div>
   </section>
@@ -92,8 +70,6 @@
   <!-- Rodapé -->
   <footer class="bg-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-
-      <!-- Logo e descrição -->
       <div class="space-y-4">
         <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-16 object-contain" />
         <h3 class="text-xl font-bold">Nafra Cred</h3>
@@ -102,8 +78,6 @@
           Nosso foco é proporcionar a todos os nossos clientes serviços com transparência, agilidade e credibilidade.
         </p>
       </div>
-
-      <!-- Horário de funcionamento -->
       <div class="space-y-4">
         <h3 class="text-xl font-bold">Horário de Funcionamento</h3>
         <p class="text-sm text-gray-300">
@@ -111,8 +85,6 @@
           <strong>08:00 às 18:00 horas</strong>
         </p>
       </div>
-
-      <!-- Informações de contato -->
       <div class="space-y-4">
         <h3 class="text-xl font-bold">Informações de Contato</h3>
         <p class="text-sm text-gray-300">
@@ -122,42 +94,98 @@
           Barra do Corda - MA<br />
           CEP 65950-000
         </p>
-
-        <!-- Redes sociais -->
         <div class="flex gap-4 mt-2">
-          <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#" aria-label="WhatsApp" class="text-gray-300 hover:text-white">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="#" aria-label="YouTube" class="text-gray-300 hover:text-white">
-            <i class="fab fa-youtube"></i>
-          </a>
+          <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp" class="text-gray-300 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="YouTube" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
         </div>
-
-        <!-- Política de Privacidade -->
-        <a href="#" class="inline-block mt-4 text-sm text-red-400 hover:text-red-200 underline">
-          Política de Privacidade
-        </a>
+        <a href="#" class="inline-block mt-4 text-sm text-red-400 hover:text-red-200 underline">Política de Privacidade</a>
       </div>
     </div>
   </footer>
 
-  <!-- Script de integração com Google Sheets -->
+  <!-- Script -->
   <script>
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyzVG5dDv6CJ9sYZ4c4rC5U8I4Skrv9ww4kYvxVPlq418RgV-PlJKTxfRWeypNjjgT6bA/exec';
 
     const form = document.getElementById('simulacaoForm');
     const msg = document.getElementById('mensagem');
+    const telefoneInput = document.getElementById('telefone');
+    const cpfInput = document.getElementById('cpf');
+
+    // Formatar telefone enquanto digita: (DD) 99999-9999 ou (DD) 9999-9999
+    telefoneInput.addEventListener('input', () => {
+      let tel = telefoneInput.value.replace(/\D/g, '');
+      if (tel.length <= 2) {
+        telefoneInput.value = tel;
+      } else if (tel.length <= 6) {
+        telefoneInput.value = `(${tel.substring(0,2)}) ${tel.substring(2)}`;
+      } else if (tel.length <= 10) {
+        telefoneInput.value = `(${tel.substring(0,2)}) ${tel.substring(2,6)}-${tel.substring(6,10)}`;
+      } else {
+        telefoneInput.value = `(${tel.substring(0,2)}) ${tel.substring(2,7)}-${tel.substring(7,11)}`;
+      }
+    });
+
+    // Formatar CPF enquanto digita: 999.999.999-99
+    cpfInput.addEventListener('input', () => {
+      let c = cpfInput.value.replace(/\D/g, '');
+      if (c.length <= 3) {
+        cpfInput.value = c;
+      } else if (c.length <= 6) {
+        cpfInput.value = `${c.substring(0,3)}.${c.substring(3,6)}`;
+      } else if (c.length <= 9) {
+        cpfInput.value = `${c.substring(0,3)}.${c.substring(3,6)}.${c.substring(6,9)}`;
+      } else {
+        cpfInput.value = `${c.substring(0,3)}.${c.substring(3,6)}.${c.substring(6,9)}-${c.substring(9,11)}`;
+      }
+    });
+
+    // Validação CPF (cálculo dos dígitos verificadores)
+    function validarCPF(cpf) {
+      cpf = cpf.replace(/[^\d]+/g, '');
+      if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+      let soma = 0, resto;
+      for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(cpf.substring(9, 10))) return false;
+      soma = 0;
+      for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(cpf.substring(10, 11))) return false;
+      return true;
+    }
+
+    // Validação telefone (10 ou 11 dígitos)
+    function validarTelefone(telefone) {
+      telefone = telefone.replace(/[^\d]+/g, '');
+      return telefone.length >= 10 && telefone.length <= 11;
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const data = new FormData(form);
+      const cpf = data.get('CPF');
+      const telefone = data.get('Telefone');
+
+      // Validações
+      if (!validarCPF(cpf)) {
+        msg.classList.remove('hidden');
+        msg.classList.replace('text-green-600', 'text-red-600');
+        msg.textContent = '❌ CPF inválido. Verifique e tente novamente.';
+        return;
+      }
+
+      if (!validarTelefone(telefone)) {
+        msg.classList.remove('hidden');
+        msg.classList.replace('text-green-600', 'text-red-600');
+        msg.textContent = '❌ Telefone inválido. Informe com DDD.';
+        return;
+      }
 
       try {
         const res = await fetch(ENDPOINT, {
@@ -169,7 +197,8 @@
 
         if (json.status === 'ok') {
           msg.classList.remove('hidden');
-          msg.textContent = '✅ Sua simulação foi registrada com sucesso!';
+          msg.classList.replace('text-red-600', 'text-green-600');
+          msg.textContent = '✅ Sua solicitação foi registrada com sucesso! Em instantes você receberá o contato de um dos nossos consultores.';
           form.reset();
         } else {
           msg.classList.remove('hidden');
@@ -183,85 +212,6 @@
       }
     });
   </script>
-<script>
-  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyzVG5dDv6CJ9sYZ4c4rC5U8I4Skrv9ww4kYvxVPlq418RgV-PlJKTxfRWeypNjjgT6bA/exec';
-
-  const form = document.getElementById('simulacaoForm');
-  const msg = document.getElementById('mensagem');
-
-  // Função para validar CPF (formato simples + dígitos válidos)
-  function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g, ''); // remove caracteres não numéricos
-    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
-
-    let soma = 0, resto;
-    for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
-    resto = (soma * 10) % 11;
-    if (resto === 10 || resto === 11) resto = 0;
-    if (resto !== parseInt(cpf.substring(9, 10))) return false;
-
-    soma = 0;
-    for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
-    resto = (soma * 10) % 11;
-    if (resto === 10 || resto === 11) resto = 0;
-    if (resto !== parseInt(cpf.substring(10, 11))) return false;
-
-    return true;
-  }
-
-  // Função para validar telefone (mínimo 10 dígitos)
-  function validarTelefone(telefone) {
-    telefone = telefone.replace(/[^\d]+/g, '');
-    return telefone.length >= 10 && telefone.length <= 11;
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const data = new FormData(form);
-    const cpf = data.get('CPF');
-    const telefone = data.get('Telefone');
-
-    // Validações antes de enviar
-    if (!validarCPF(cpf)) {
-      msg.classList.remove('hidden');
-      msg.classList.replace('text-green-600', 'text-red-600');
-      msg.textContent = '❌ CPF inválido. Verifique e tente novamente.';
-      return;
-    }
-
-    if (!validarTelefone(telefone)) {
-      msg.classList.remove('hidden');
-      msg.classList.replace('text-green-600', 'text-red-600');
-      msg.textContent = '❌ Telefone inválido. Informe com DDD.';
-      return;
-    }
-
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        body: data
-      });
-
-      const json = await res.json();
-
-      if (json.status === 'ok') {
-        msg.classList.remove('hidden');
-        msg.classList.replace('text-red-600', 'text-green-600');
-        msg.textContent = '✅ Sua solicitação foi registrada com sucesso! Em instantes você receberá o contato de um dos nossos consultores.';
-        form.reset();
-      } else {
-        msg.classList.remove('hidden');
-        msg.classList.replace('text-green-600', 'text-red-600');
-        msg.textContent = '❌ Ocorreu um erro ao registrar. Tente novamente.';
-      }
-    } catch (err) {
-      msg.classList.remove('hidden');
-      msg.classList.replace('text-green-600', 'text-red-600');
-      msg.textContent = '❌ Falha de conexão. Verifique sua internet e tente novamente.';
-    }
-  });
-</script>
 
 </body>
 </html>
