@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulação - Nafra Cred</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    /* Efeito de zoom suave */
+    .zoom-effect {
+      transition: transform 0.3s ease;
+    }
+    .zoom-effect:hover {
+      transform: scale(1.1);
+    }
+    /* Animações simples */
+    .animate-slide-left {
+      animation: slideLeft 1s ease forwards;
+    }
+    .animate-slide-right {
+      animation: slideRight 1s ease forwards;
+    }
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Cabeçalho -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-12" />
+      <nav class="flex gap-6 text-sm font-semibold">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="simulacao.html" class="text-red-600">Simulação</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="contato.html">Contato</a>
+        <a href="parceiro.html" class="text-orange-500">Área do Parceiro</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Simulação -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <!-- Logo à esquerda com efeito zoom -->
+      <div class="flex justify-center animate-slide-left">
+        <img
+          src="assets/img/logo-nafra.png"
+          alt="Logo Nafra Cred"
+          class="w-64 md:w-96 object-contain zoom-effect"
+        />
+      </div>
+
+      <!-- Formulário à direita -->
+      <div class="bg-white shadow-lg rounded-lg p-8 animate-slide-right">
+        <h2 class="text-3xl font-bold text-center text-red-600 mb-6">Simule seu Crédito</h2>
+        
+        <form id="simulacaoForm" class="space-y-4">
+          <input type="text" name="Nome" placeholder="Nome completo" required
+            class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          
+          <input type="tel" name="Telefone" placeholder="Telefone" required
+            class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          
+          <input type="text" name="CPF" placeholder="CPF" required
+            class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          
+          <button type="submit"
+            class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+            Simular Agora
+          </button>
+        </form>
+        
+        <p id="mensagem" class="text-center mt-4 text-green-600 hidden">
+          ✅ Sua simulação foi registrada com sucesso!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      <!-- Logo e descrição -->
+      <div class="space-y-4">
+        <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-16 object-contain" />
+        <h3 class="text-xl font-bold">Nafra Cred</h3>
+        <p class="text-sm text-gray-300">
+          Nosso alto padrão de qualidade em atendimento busca oferecer o melhor para você.
+          Nosso foco é proporcionar a todos os nossos clientes serviços com transparência, agilidade e credibilidade.
+        </p>
+      </div>
+
+      <!-- Horário de funcionamento -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold">Horário de Funcionamento</h3>
+        <p class="text-sm text-gray-300">
+          Segunda à sexta-feira:<br />
+          <strong>08:00 às 18:00 horas</strong>
+        </p>
+      </div>
+
+      <!-- Informações de contato -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold">Informações de Contato</h3>
+        <p class="text-sm text-gray-300">
+          WhatsApp: (99) 98116-5904<br />
+          E-mail: nafracred@gmail.com<br />
+          Av. Eliéser Moreira, 121<br />
+          Barra do Corda - MA<br />
+          CEP 65950-000
+        </p>
+
+        <!-- Redes sociais -->
+        <div class="flex gap-4 mt-2">
+          <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="text-gray-300 hover:text-white">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-gray-300 hover:text-white">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+
+        <!-- Política de Privacidade -->
+        <a href="#" class="inline-block mt-4 text-sm text-red-400 hover:text-red-200 underline">
+          Política de Privacidade
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
