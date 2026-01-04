@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nafra Cred — Facilitando o seu acesso ao crédito</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* Animações */
+    @keyframes slideLeft { 0% {transform:translateX(-50px);opacity:0;} 100% {transform:translateX(0);opacity:1;} }
+    @keyframes slideRight { 0% {transform:translateX(50px);opacity:0;} 100% {transform:translateX(0);opacity:1;} }
+    @keyframes slideUp { 0% {transform:translateY(50px);opacity:0;} 100% {transform:translateY(0);opacity:1;} }
+    @keyframes fadeIn { 0% {opacity:0;} 100% {opacity:1;} }
+    @keyframes scroll { 0% {transform:translateX(0);} 100% {transform:translateX(-50%);} }
+
+    /* Começam invisíveis */
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-slide-up,
+.animate-fade-in { opacity: 0; }
+.animate-fade-in.visible { animation: fadeIn 1.2s ease-out forwards; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+    /* Só animam quando ganham .visible */
+    .animate-slide-left.visible { animation: slideLeft 1s ease-out forwards; }
+    .animate-slide-right.visible { animation: slideRight 1s ease-out forwards; }
+    .animate-slide-up.visible { animation: slideUp 1s ease-out forwards; }
+    .animate-fade-in.visible { animation: fadeIn 1.2s ease-out forwards; }
+
+    /* Carrossel dos bancos */
+    .animate-scroll { animation: scroll 20s linear infinite; }
+
+    /* Atrasos opcionais */
+    .animation-delay-200 { animation-delay: 0.4s; }
+    .animation-delay-400 { animation-delay: 0.6s; }
+    .animation-delay-600 { animation-delay: 0.8s; }
+    .animation-delay-800 { animation-delay: 0.9s; }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Cabeçalho -->
+  <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-16 md:h-20" />
+      <nav class="flex flex-wrap gap-4 md:gap-6 text-sm font-semibold">
+        <a href="#inicio" class="text-red-600">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#parceiros">Bancos Parceiros</a>
+        <a href="#contato">Contato</a>
+        <a href="simulacao.html">Simulação</a>
+        <a href="parceiro.html" class="text-orange-500">Área do Parceiro</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner principal -->
+  <section id="inicio" class="bg-gradient-to-r from-orange-100 to-yellow-50 py-24 mt-24">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+      <div class="animate-slide-left flex justify-center">
+        <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-50 md:h-90 object-contain" />
+      </div>
+      <div class="animate-slide-right text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 leading-tight">O crédito que você precisa</h1>
+        <p class="text-lg text-gray-700 mb-6">Com a transparência que você merece. FGTS, Consignado e Crédito Pessoal em minutos.</p>
+        <a href="simulacao.html" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition">Simular Agora</a>
+      </div>
+    </div>
+  </section>
+
+<!-- Serviços -->
+<section id="servicos" class="bg-gray-60 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Título maior -->
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center text-red-600 mb-16 animate-fade-in">
+      Nossos Serviços
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Consignado INSS -->
+      <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition animate-slide-up">
+        <img src="assets/img/inss.png" alt="Consignado INSS" class="mx-auto mb-4 h-30 object-contain" />
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Consignado INSS</h3>
+        <p class="text-gray-600 mb-4">Crédito especial para aposentados e pensionistas do INSS com as melhores taxas do mercado.</p>
+      </div>
+      
+      <!-- Servidor Público -->
+      <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition animate-slide-up animation-delay-200">
+        <img src="assets/img/servidor.png" alt="Servidor Público" class="mx-auto mb-4 h-30 object-contain" />
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Servidor Público</h3>
+        <p class="text-gray-600 mb-4">Condições exclusivas para servidores públicos federais, estaduais e municipais.</p>
+      </div>
+      
+      <!-- Antecipação FGTS -->
+      <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition animate-slide-up animation-delay-400">
+        <img src="assets/img/fgts.png" alt="Antecipação FGTS" class="mx-auto mb-4 h-30 object-contain" />
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Antecipação FGTS</h3>
+        <p class="text-gray-600 mb-4">Antecipe seu saque-aniversário do FGTS com taxas reduzidas e sem burocracia.</p>
+      </div>
+      
+      <!-- Crédito do Trabalhador -->
+      <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition animate-slide-up animation-delay-600">
+        <img src="assets/img/clt.png" alt="Crédito do Trabalhador" class="mx-auto mb-4 h-30 object-contain" />
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Crédito do Trabalhador</h3>
+        <p class="text-gray-600 mb-4">O Crédito do Trabalhador é o novo consignado privado, com prazo flexível e desconto direto no contracheque.</p>
+      </div>
+      
+      <!-- Crédito com Garantia de Veículo -->
+      <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition animate-slide-up animation-delay-800">
+        <img src="assets/img/veiculo.png" alt="Crédito com Garantia de Veículo" class="mx-auto mb-4 h-30 object-contain" />
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Crédito com Garantia de Veículo</h3>
+        <p class="text-gray-600 mb-4">Use seu veículo como garantia e conquiste taxas mais baixas e prazos maiores.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  <!-- Etapas do Crédito -->
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 gap-6">
+        <h2 class="text-4xl font-extrabold text-red-600 mb-4 leading-tight uppercase animate-fade-in">Seu Crédito na palma da MÃO</h2>
+
+        <div class="bg-gray-100 rounded-xl shadow-md p-6 animate-slide-up">
+          <h3 class="text-2xl font-semibold text-red-600 mb-2">📋 Faça seu pedido</h3>
+          <p class="text-lg text-gray-700">Clique em <strong>Simular Agora</strong> e fale com um de nossos analistas. Atendimento humanizado e rápido.</p>
+        </div>
+
+        <div class="bg-gray-100 rounded-xl shadow-md p-6 animate-slide-up animation-delay-200">
+          <h3 class="text-2xl font-semibold text-red-600 mb-2">🖐 Escolha seu empréstimo</h3>
+          <p class="text-lg text-gray-700">Após informar seus dados, você receberá a melhor proposta pré-aprovada com base na sua análise.</p>
+        </div>
+
+        <div class="bg-gray-100 rounded-xl shadow-md p-6 animate-slide-up animation-delay-400">
+          <h3 class="text-2xl font-semibold text-red-600 mb-2">💸 Receba o dinheiro na conta</h3>
+          <p class="text-lg text-gray-700">Escolha a proposta ideal, envie os documentos e receba o valor em até 24h úteis. Tudo sem sair de casa.</p>
+        </div>
+
+        <div class="bg-gray-100 rounded-xl shadow-md p-6 animate-slide-up animation-delay-600">
+          <h3 class="text-2xl font-semibold text-red-600 mb-2">🎉 Desfrute</h3>
+          <p class="text-lg text-gray-700">Aproveite seu crédito com tranquilidade. Estamos sempre disponíveis para te acompanhar em cada etapa.</p>
+        </div>
+
+        <a href="simulacao.html" class="inline-block mt-6 bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition text-center text-lg animate-slide-up animation-delay-800">
+          Simular Agora
+        </a>
+      </div>
+
+      <div class="flex justify-center animate-slide-up">
+        <img src="assets/img/palma.png" alt="Seu Crédito na palma da mão" class="h-[520px] md:h-[620px] object-contain" />
+      </div>
+    </div>
+  </section>
+
+<!-- Quem Somos -->
+<section id="sobre" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    <!-- Coluna esquerda: título + texto + imagem da sala -->
+    <div class="flex flex-col gap-6 animate-slide-left">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-red-600">Quem Somos</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        A <strong>Nafra Cred</strong> é uma empresa nordestina criada para mudar o conceito de atendimento no setor financeiro.
+        Nosso propósito é unir tecnologia e humanização, oferecendo crédito com transparência, rapidez e proximidade.
+        Valorizamos cada cliente como único, trazendo soluções que realmente fazem diferença na vida das pessoas.
+      </p>
+
+      <!-- Foto da sala sem borda -->
+      <img
+        src="assets/img/quemsomos.png"
+        alt="Imagem Institucional Nafra Cred"
+        class="w-full h-auto rounded-md animate-fade-in"
+      />
+    </div>
+
+    <!-- Coluna direita: Missão, Visão, Valores + logo abaixo -->
+    <div class="flex flex-col gap-8">
+      <div class="animate-slide-up border-b border-gray-200 pb-4">
+        <h3 class="text-2xl font-semibold text-red-600 mb-2">💡 Missão</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Oferecer soluções financeiras inteligentes e individuais que proporcionem tranquilidade e segurança aos nossos clientes,
+          garantindo não apenas crédito, mas também confiança, transparência e auxílio em cada etapa.
+          Atuamos como consultores dedicados combinando a precisão da inteligência artificial e a sensibilidade do atendimento humano.
+        </p>
+      </div>
+
+      <div class="animate-slide-up animation-delay-200 border-b border-gray-200 pb-4">
+        <h3 class="text-2xl font-semibold text-red-600 mb-2">🎯 Visão</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Ser reconhecida como a empresa líder em crédito consignado e consultoria financeira no Brasil,
+          objetivando produção de larga escala sem perder o foco na qualidade e na ética.
+        </p>
+      </div>
+
+      <div class="animate-slide-up animation-delay-400">
+        <h3 class="text-2xl font-semibold text-red-600 mb-2">🤝 Valores</h3>
+        <ul class="list-disc list-inside pl-4 text-gray-700 space-y-2 text-base leading-relaxed">
+          <li><strong>Ética:</strong> Agimos com integridade e responsabilidade em todas as relações, colocando o cliente em primeiro lugar.</li>
+          <li><strong>Inovação:</strong> Investimos em tecnologia e inteligência artificial para oferecer soluções rápidas e precisas.</li>
+          <li><strong>Humanização:</strong> Manter excelência técnica e compromisso em cada etapa do processo de crédito.</li>
+          <li><strong>Transparência:</strong> Garantimos clareza nas informações e confiança nas negociações.</li>
+          <li><strong>Compromisso Social:</strong> Valorizamos o contato humano, ouvindo e entendendo as necessidades individuais de cada cliente.</li>
+        </ul>
+      </div>
+
+      <!-- Logo vazada abaixo dos valores -->
+      <div class="flex justify-center items-center animate-fade-in">
+        <img
+          src="assets/img/logo-nafra.png"
+          alt="Logo Nafra Cred"
+          class="h-52 md:h-64 object-contain"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Bancos Parceiros -->
+  <section id="parceiros" class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-red-600 mb-12 animate-fade-in">Bancos Parceiros</h2>
+
+      <div class="overflow-hidden relative">
+        <div class="flex animate-scroll gap-12">
+          <img src="assets/img/banco1.png" alt="Banco 1" class="h-16 object-contain" />
+          <img src="assets/img/banco2.png" alt="Banco 2" class="h-16 object-contain" />
+          <img src="assets/img/banco3.png" alt="Banco 3" class="h-16 object-contain" />
+          <img src="assets/img/banco4.png" alt="Banco 4" class="h-16 object-contain" />
+          <img src="assets/img/banco5.png" alt="Banco 5" class="h-16 object-contain" />
+          <img src="assets/img/banco6.png" alt="Banco 6" class="h-16 object-contain" />
+          <img src="assets/img/banco7.png" alt="Banco 7" class="h-16 object-contain" />
+          <img src="assets/img/banco8.png" alt="Banco 8" class="h-16 object-contain" />
+          <img src="assets/img/banco9.png" alt="Banco 9" class="h-16 object-contain" />
+          <img src="assets/img/banco10.png" alt="Banco 10" class="h-16 object-contain" />
+          <img src="assets/img/banco11.png" alt="Banco 11" class="h-16 object-contain" />
+          <img src="assets/img/banco12.png" alt="Banco 12" class="h-16 object-contain" />
+          <!-- repete para efeito contínuo -->
+          <img src="assets/img/banco1.png" alt="Banco 1" class="h-16 object-contain" />
+          <img src="assets/img/banco2.png" alt="Banco 2" class="h-16 object-contain" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+<section id="contato" class="py-16">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Formulário à esquerda -->
+    <div class="bg-white shadow-lg rounded-lg p-8 animate-slide-left">
+      <h2 class="text-3xl font-bold text-center text-red-600 mb-6 animate-fade-in">Fale Conosco</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Seu nome" required
+          class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        
+        <input type="email" placeholder="Seu e-mail" required
+          class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        
+        <textarea placeholder="Sua mensagem" required
+          class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+        
+        <button type="submit"
+          class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+          Enviar
+        </button>
+      </form>
+    </div>
+
+    <!-- Logo à direita com efeito zoom -->
+    <div class="flex justify-center animate-slide-right">
+      <img
+        src="assets/img/logo-nafra.png"
+        alt="Logo Nafra Cred"
+        class="w-64 md:w-96 object-contain zoom-effect"
+      />
+    </div>
+  </div>
+</section>
+
+
+  <!-- Rodapé -->
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+    <!-- Logo e descrição -->
+    <div class="space-y-4">
+      <img src="assets/img/logo-nafra.png" alt="Nafra Cred" class="h-16 object-contain" />
+      <h3 class="text-xl font-bold">Nafra Cred</h3>
+      <p class="text-sm text-gray-300">
+        Nosso alto padrão de qualidade em atendimento busca oferecer o melhor para você.
+        Nosso foco é proporcionar a todos os nossos clientes serviços com transparência, agilidade e credibilidade.
+      </p>
+    </div>
+
+    <!-- Horário de funcionamento -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-bold">Horário de Funcionamento</h3>
+      <p class="text-sm text-gray-300">
+        Segunda à sexta-feira:<br />
+        <strong>08:00 às 18:00 horas</strong>
+      </p>
+    </div>
+
+    <!-- Informações de contato -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-bold">Informações de Contato</h3>
+      <p class="text-sm text-gray-300">
+        WhatsApp: (99) 98116-5904<br />
+        E-mail: nafracred@gmail.com<br />
+        Av. Eliéser Moreira, 121<br />
+        Barra do Corda - MA<br />
+        CEP 65950-000
+      </p>
+
+      <!-- Redes sociais -->
+      <div class="flex gap-4 mt-2">
+        <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="WhatsApp" class="text-gray-300 hover:text-white">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" aria-label="YouTube" class="text-gray-300 hover:text-white">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+
+      <!-- Política de Privacidade -->
+      <a href="#" class="inline-block mt-4 text-sm text-red-400 hover:text-red-200 underline">
+        Política de Privacidade
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Script para ativar animações apenas quando visíveis -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(
+      ".animate-slide-up, .animate-slide-left, .animate-slide-right, .animate-fade-in"
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Se for um card de serviço, aplica delay individual
+          if (entry.target.closest("#servicos") && entry.target.classList.contains("animate-slide-up")) {
+            const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+            setTimeout(() => entry.target.classList.add("visible"), index * 200);
+          } else {
+            // Para títulos e outros elementos
+            entry.target.classList.add("visible");
+          }
+        } else {
+          // Remove a classe quando sai da tela para reanimar ao voltar
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+
+</body>
+</html>
